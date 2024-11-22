@@ -89,9 +89,7 @@ if (OGcanvas != null && ALcanvas != null){
 
             for (let y = 1; y < ALcanvas.height - 1; y++) {
                 for (let x = 1; x < ALcanvas.width - 1; x++) {
-                    // Get the average color of the 3x3 grid around the current pixel
-                    let r = 0, g = 0, b = 0, a = 0;
-                    let count = 0;
+                    let r = 0, g = 0, b = 0, a = 0, count = 0;
         
                     for (let dy = -1; dy <= 1; dy++) {
                         for (let dx = -1; dx <= 1; dx++) {
@@ -104,7 +102,6 @@ if (OGcanvas != null && ALcanvas != null){
                         }
                     }
         
-                    // Set the average color to the current pixel
                     const idx = (y * ALcanvas.width + x) * 4;
                     data[idx] = r / count;
                     data[idx + 1] = g / count;
@@ -112,8 +109,6 @@ if (OGcanvas != null && ALcanvas != null){
                     data[idx + 3] = a / count;
                 }
             }
-
-
             
             ctx2.putImageData(imageData, 0, 0);
         }
